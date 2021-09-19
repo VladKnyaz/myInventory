@@ -1,11 +1,11 @@
 'use strict';
 let cells = [
   { id: 1, idItem: null, isFull: false, type: null, value: null },
-  { id: 2, idItem: 3, isFull: true, type: 'weapon', value: null },
+  { id: 2, idItem: 1, isFull: true, type: 'weapon', value: null },
   { id: 3, idItem: null, isFull: false, type: null, value: null },
   { id: 4, idItem: 4, isFull: true, type: 'bullets', value: 50 },
-  { id: 5, idItem: 2, isFull: true, type: 'clothes', value: null },
-  { id: 6, idItem: 5, isFull: true, type: 'bullets', value: 64 },
+  { id: 5, idItem: 3, isFull: true, type: 'clothes', value: null },
+  { id: 6, idItem: 6, isFull: true, type: 'bullets', value: 64 },
   { id: 7, idItem: null, isFull: false, type: null, value: null },
   { id: 8, idItem: null, isFull: false, type: null, value: null },
   { id: 9, idItem: null, isFull: false, type: null, value: null },
@@ -31,6 +31,13 @@ const inventory = document.querySelector('.inventory');
 cells.map((cell) => {
   let div = document.createElement('div');
   div.className = 'cell';
+
+  if (cell.idItem > allItems.length) {              // Если администратор ошибся с id предмета и такого нет, то ничего не будет
+    // Запрос в базу данных на изменение сломаной ячейки                      ПЕРЕДЕЛАТЬ!
+    cells[cell.id - 1] = { id: cell.id, idItem: null, isFull: false, type: null, value: null }; // Решение для фейк базы данных
+    return inventory.append(div);
+  } 
+
   div.dataset.cellid = cell.id;
   if (cell.isFull) {
     let itemInfo = allItems[cell.idItem - 1];
