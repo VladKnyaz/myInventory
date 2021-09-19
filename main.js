@@ -5,7 +5,7 @@ let cells = [
   { id: 3, idItem: null, isFull: false, type: null, value: null },
   { id: 4, idItem: 4, isFull: true, type: 'bullets', value: 50 },
   { id: 5, idItem: 3, isFull: true, type: 'clothes', value: null },
-  { id: 6, idItem: 6, isFull: true, type: 'bullets', value: 64 },
+  { id: 6, idItem: 6, isFull: true, type: 'bullets', value: 64 },  // Его не существует в предметах
   { id: 7, idItem: null, isFull: false, type: null, value: null },
   { id: 8, idItem: null, isFull: false, type: null, value: null },
   { id: 9, idItem: null, isFull: false, type: null, value: null },
